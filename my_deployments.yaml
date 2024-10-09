@@ -1,0 +1,23 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment
+  labels:
+    app  : my-web-deployment
+    env  : prod
+    tier : frontend
+    owner: IvanGlyz
+spec:
+  selector:
+    matchLabels:
+      project: mypods
+  template:
+    metadata:
+      labels:
+        project: mypods
+    spec:
+      containers:
+      - name : pods-nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
