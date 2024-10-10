@@ -19,9 +19,12 @@ spec:
       containers:
       - name : pods-nginx
         image: nginx:latest
+        resources:
+          limits:
+            memory: "128mi"
+            cpu   : "500m"
         ports:
         - containerPort: 80
-
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
